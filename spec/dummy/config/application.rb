@@ -9,7 +9,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require
-require "ecm_pictures"
+require "ecm_products"
 
 module Dummy
   class Application < Rails::Application

@@ -1,5 +1,5 @@
 module ECM
-  module Pictures
+  module Products
     class Engine < ::Rails::Engine
     end
   end  

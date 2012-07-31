@@ -1,1 +1,0 @@
-require 'ecm/pictures/engine'

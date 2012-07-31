@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ecm_pictures (0.0.1.pre)
+    ecm_products (0.0.1.pre)
       rails (~> 3.2.7)
 
 GEM
@@ -143,7 +143,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  ecm_pictures!
+  ecm_products!
   factory_girl_rails (~> 1.0)
   jquery-rails
   rspec-rails (~> 2.0)
