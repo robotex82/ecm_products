@@ -27,8 +27,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency "yard"
   
   # Tests
+  s.add_development_dependency "capybara"    
   s.add_development_dependency "rspec-rails", "~> 2.0"
   s.add_development_dependency "factory_girl_rails", "~> 1.0"
+  s.add_development_dependency 'guard-rspec'
   s.add_development_dependency "shoulda-matchers"
-  s.add_development_dependency "capybara"  
 end
