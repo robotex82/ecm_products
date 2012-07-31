@@ -1,4 +1,4 @@
-require 'active_record'
+require 'spec_helper'
 
 describe "ActiveRecord::Base models" do
   ActiveRecord::Base.descendants.map(&:to_s).each do |model_name|
