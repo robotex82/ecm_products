@@ -40,6 +40,12 @@ class Ecm::Products::Product < ActiveRecord::Base
   belongs_to :ecm_products_product_category, 
              :class_name => Ecm::Products::ProductCategory, 
              :counter_cache => :ecm_products_products_count
+             
+  has_many :ecm_products_product_links, 
+           :class_name => Ecm::Products::ProductLink, 
+           :dependent => :destroy,
+           :foreign_key => :ecm_products_product_id,
+           :order => 'position'
   
   # attributes
   attr_accessible :locale, 

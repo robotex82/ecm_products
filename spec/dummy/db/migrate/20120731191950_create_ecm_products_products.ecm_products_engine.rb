@@ -9,6 +9,7 @@ class CreateEcmProductsProducts < ActiveRecord::Migration
       t.boolean :price_on_application   
       
       # associations
+      t.integer :ecm_products_product_links_count, :default => 0, :null => false
       t.references :ecm_products_product_category   
       
       # acts as list

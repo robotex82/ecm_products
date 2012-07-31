@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120731161656) do
+ActiveRecord::Schema.define(:version => 20120731191951) do
 
   create_table "ecm_products_product_categories", :force => true do |t|
     t.string   "locale"
@@ -37,12 +37,25 @@ ActiveRecord::Schema.define(:version => 20120731161656) do
     t.datetime "updated_at",                                 :null => false
   end
 
+  create_table "ecm_products_product_links", :force => true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.text     "description"
+    t.integer  "ecm_products_product_id"
+    t.integer  "position"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "ecm_products_product_links", ["ecm_products_product_id"], :name => "index_ecm_products_product_links_on_ecm_products_product_id"
+
   create_table "ecm_products_products", :force => true do |t|
     t.string   "locale"
     t.string   "name"
     t.text     "short_description"
     t.text     "long_description"
     t.boolean  "price_on_application"
+    t.integer  "ecm_products_product_links_count", :default => 0, :null => false
     t.integer  "ecm_products_product_category_id"
     t.integer  "position"
     t.datetime "published_at"
@@ -59,8 +72,8 @@ ActiveRecord::Schema.define(:version => 20120731161656) do
     t.string   "main_image_content_type"
     t.datetime "main_image_updated_at"
     t.string   "main_image_fingerprint"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
   end
 
 end
