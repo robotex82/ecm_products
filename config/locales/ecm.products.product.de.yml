@@ -1,0 +1,36 @@
+--- 
+de: 
+  activerecord: 
+    models: 
+      ecm/products/product: 
+        one: Produkt
+        other: Produkte
+    attributes: 
+      ecm/products/product: 
+        name: Name
+        preview_image_fingerprint: Vorschaubild Fingerabdruck
+        position: Position
+        slug: Freundliche ID
+        main_image_content_type: Hauptbild Dateityp
+        created_at: Erstellt am
+        main_image_updated_at: Hauptbild aktualisiert am
+        updated_at: Aktualisiert am
+        short_description: Kurzbeschreibung
+        main_image_file_name: Hauptbild Dateiname
+        main_image_file_size: Hauptbild Dateigröße
+        main_image_fingerprint: Hauptbild Fingerabdruck
+        ecm_products_product_category: Produktkategorie
+        ecm_products_product_category_id: Produktkategorie
+        long_description: Langbeschreibung
+        preview_image_updated_at: Vorschaubild aktualisiert am
+        ecm_products_product_links_count: Links
+        preview_image_content_type: Vorschaubild Dateityp
+        price_currency: Preiswährung
+        locale: Sprache
+        price_on_application: Preis auf Anfrage
+        preview_image_file_name: Vorschaubild Dateiname
+        published_at: Veröffentlicht am
+        preview_image_file_size: Vorschaubild Dateigröße
+        price_cents: Preis in Cents
+        preview_image: Vorschaubild
+        main_image: Hauptbild

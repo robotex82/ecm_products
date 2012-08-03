@@ -31,6 +31,6 @@ class Ecm::Products::ProductCategory < ActiveRecord::Base
   # validations
   validates :name, :presence => true, :uniqueness => { :scope => [ :parent_id ] }
   validates :locale, :presence => true, :if => :root?
-  validates :locale, :inclusion => { :in => I18n.available_locales.map(&:to_s) }, :unless => Proc.new { |cc| cc.locale.blank? }
+  validates :locale, :inclusion => I18n.available_locales.map(&:to_s), :unless => Proc.new { |pc| pc.locale.blank? }
   validates :locale, :absence => true, :unless => :root? 
 end

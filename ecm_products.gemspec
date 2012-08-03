@@ -34,6 +34,10 @@ Gem::Specification.new do |s|
   # Documentation
   s.add_development_dependency "yard"
   
+  # Active admin
+  s.add_development_dependency 'sass-rails'
+  s.add_development_dependency "coffee-rails"  
+  
   # Tests
   s.add_development_dependency "capybara"    
   s.add_development_dependency "rspec-rails", "~> 2.0"

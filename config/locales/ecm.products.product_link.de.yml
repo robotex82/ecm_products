@@ -1,0 +1,17 @@
+--- 
+de: 
+  activerecord: 
+    models: 
+      ecm/products/product_link: 
+        one: Produkt Link
+        other: Produkt Links
+    attributes: 
+      ecm/products/product_link: 
+        name: Name
+        position: Position 
+        created_at: Erstellt am
+        updated_at: Aktualisiert am
+        ecm_products_product: Produkt
+        ecm_products_product_id: Produkt
+        url: URL
+        description: Beschreibung

@@ -1,0 +1,14 @@
+de:
+  ecm:
+    products:
+      active_admin:
+        menu: "Produkte"
+      product:
+        actions:
+        messages:
+      product_category:
+        actions:
+        messages:
+      product_link:
+        actions:
+        messages:        

@@ -1,0 +1,34 @@
+--- 
+de: 
+  activerecord: 
+    models: 
+      ecm/products/product_category: 
+        one: Produkt Kategorie
+        other: Produkt Kategorien
+    attributes: 
+      ecm/products/product_category: 
+        slug: Freundliche ID
+        name: Name
+        preview_image_fingerprint: Vorschaubild Fingerabdruck
+        main_image_content_type: Hauptbild Dateityp
+        created_at: Erstellt am
+        ecm_products_products_count: Produkte
+        depth: Baumtiefe
+        updated_at: Aktualisiert am
+        short_description: Kurzbeschreibung
+        main_image_updated_at: Hauptbild aktualisiert am
+        lft: Links
+        main_image_fingerprint: Hauptbild Fingerabdruck
+        main_image_file_name: Hauptbild Dateiname
+        main_image_file_size: Hauptbild Dateigröße
+        long_description: Langbeschreibung
+        preview_image_content_type: Vorschaubild Dateityp
+        preview_image_updated_at: Vorschaubild aktualisiert am
+        parent: Überkategorie
+        parent_id: Überkategorie
+        locale: Sprache
+        preview_image_file_name: Vorschaubild Dateiname
+        preview_image_file_size: Vorschaubild Dateigröße
+        rgt: Rechts
+        preview_image: Vorschaubild
+        main_image: Hauptbild        

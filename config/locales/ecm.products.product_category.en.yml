@@ -1,0 +1,34 @@
+--- 
+en: 
+  activerecord: 
+    models: 
+      ecm/products/product_category: 
+        one: product category
+        other: product categories
+    attributes: 
+      ecm/products/product_category: 
+        slug: slug
+        name: name
+        preview_image_fingerprint: preview image fingerprint
+        main_image_content_type: main image content type
+        created_at: created at
+        ecm_products_products_count: products
+        depth: depth
+        updated_at: updated at
+        short_description: short description
+        main_image_updated_at: main image updated at
+        lft: left
+        main_image_fingerprint: main image fingerprint
+        main_image_file_name: main image file name
+        main_image_file_size: main image file size
+        long_description: long description
+        preview_image_content_type: preview image content type
+        preview_image_updated_at: preview image updated at
+        parent: parent category
+        parent_id: parent category
+        locale: language
+        preview_image_file_name: preview image file name
+        preview_image_file_size: preview image file size
+        rgt: right
+        preview_image: preview image
+        main_image: main image
