@@ -1,0 +1,7 @@
+<h1>Ecm::Products::ProductCategories#index</h1>
+
+<div class="product_categories-tree">
+  <%= nested_li(@product_categories, {}) do |product_category, level| %>
+    <%= link_to product_category.tree_name, product_category %>
+  <% end %>
+</div>

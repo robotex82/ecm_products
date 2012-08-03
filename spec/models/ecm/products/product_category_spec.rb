@@ -37,6 +37,18 @@ module Ecm
         product_category = FactoryGirl.create(:ecm_products_product_category, :name => 'Look, a slugged category!')
         product_category.to_param.should == 'look-a-slugged-category'
       end
+      
+      it "should have a correct tree name" do
+        product_category = FactoryGirl.create(:ecm_products_product_category, :name => 'Fruits', :locale => 'en')
+        product_category.tree_name.should == '[en] Fruits'
+      end
+      
+      it "should display the products count in the tree name" do
+        product_category = FactoryGirl.create(:ecm_products_product_category)
+        10.times { FactoryGirl.create(:ecm_products_product, :ecm_products_product_category => product_category) }
+        product_category.ecm_products_products.count.should == 10
+        product_category.tree_name.should =~ /(.*)\(10\)/
+      end      
     end
   end
 end    
