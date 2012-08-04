@@ -1,0 +1,15 @@
+<div class="product_category category" id="product_category-<%= product_category.id %>">
+
+  <% if action_name == 'show' %>
+    <h1 class="product_category-name"><%= product_category.name %></h1>
+  <% else %>
+    <h2 class="product_category-name"><%= product_category.name %></h2>
+  <% end %> 
+
+  <div class="product_categories-tree">
+      <%= nested_li(product_category.descendants, {}) do |product_category, level| %>
+        <%= link_to product_category.tree_name, product_category %>
+      <% end %>
+  </div>
+
+</div>

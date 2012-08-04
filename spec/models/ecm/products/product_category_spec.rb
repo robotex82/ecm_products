@@ -44,10 +44,16 @@ module Ecm
       end
       
       it "should display the products count in the tree name" do
-        product_category = FactoryGirl.create(:ecm_products_product_category)
-        10.times { FactoryGirl.create(:ecm_products_product, :ecm_products_product_category => product_category) }
-        product_category.ecm_products_products.count.should == 10
-        product_category.tree_name.should =~ /(.*)\(10\)/
+        product_category = FactoryGirl.create(:ecm_products_product_category_with_products)
+#        10.times do
+#          p = FactoryGirl.build(:ecm_products_product)
+#          product_category.ecm_products_products << p
+#          p.save!
+##          p = FactoryGirl.build(:ecm_products_product, :ecm_products_product_category_id => product_category)
+##          p.save!
+#        end 
+        product_category.ecm_products_products_count.should == 1
+        product_category.tree_name.should =~ /(.*)\(1\)/
       end      
     end
   end

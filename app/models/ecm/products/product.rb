@@ -50,8 +50,10 @@ class Ecm::Products::Product < ActiveRecord::Base
   # attributes
   attr_accessible :locale, 
                   :long_description, 
+                  :main_image,
                   :name, 
                   :position, 
+                  :preview_image,
                   :price_currency, 
                   :price_in_cents, 
                   :price_on_application, 

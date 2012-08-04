@@ -4,7 +4,7 @@ class Ecm::Products::ProductCategory < ActiveRecord::Base
   
   # associations
   has_many :ecm_products_products, 
-           :class_name => Ecm::Products::Product, 
+           :class_name => Ecm::Products::Product,
            :dependent => :destroy,
            :foreign_key => :ecm_products_product_category_id,
            :order => 'position'
@@ -43,10 +43,10 @@ class Ecm::Products::ProductCategory < ActiveRecord::Base
   def tree_name
     root_prefix = (self.root?) ? "[#{self.locale}] " : ""
       
-    if ecm_products_products.count < 1
+    if self.ecm_products_products_count == 0
       "#{root_prefix}#{to_s}" 
     else 
-      "#{root_prefix}#{to_s} (#{ecm_products_products.count})"     
+      "#{root_prefix}#{to_s} (#{self.ecm_products_products_count})"     
     end
   end 
-end
+end 
