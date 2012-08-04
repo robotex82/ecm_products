@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :ecm_products_product_category, :class => Ecm::Products::ProductCategory do
-    sequence(:name){|n| "#{Faker::Product.name} #{n}" }
+    sequence(:name){|n| "#{Faker::Product.product_name} #{n}" }
     locale "en"
       
     factory :ecm_products_product_category_with_parent do

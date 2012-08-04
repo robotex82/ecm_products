@@ -15,6 +15,14 @@ GIT
       rails (>= 3.0.0)
       sass (>= 3.1.0)
 
+GIT
+  remote: git://github.com/robotex82/guard-rails.git
+  revision: 2b0d43bd01c32363b4919bca372973224b3cbab1
+  branch: better-engine-support
+  specs:
+    guard-rails (0.1.0)
+      guard (>= 0.2.2)
+
 PATH
   remote: .
   specs:
@@ -107,6 +115,7 @@ GEM
     fastercsv (1.5.5)
     ffaker (1.15.0)
     ffi (1.1.2)
+    forgery (0.5.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
     friendly_id (4.0.8)
@@ -116,8 +125,6 @@ GEM
     guard-bundler (1.0.0)
       bundler (~> 1.0)
       guard (~> 1.1)
-    guard-rails (0.1.0)
-      guard (>= 0.2.2)
     guard-rspec (1.2.1)
       guard (>= 1.1)
     has_scope (0.5.1)
@@ -260,8 +267,9 @@ DEPENDENCIES
   ecm_products!
   factory_girl_rails (~> 1.0)
   ffaker
+  forgery (= 0.5.0)
   guard-bundler
-  guard-rails
+  guard-rails!
   guard-rspec
   jquery-rails
   rspec-rails (~> 2.0)
