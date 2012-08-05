@@ -1,0 +1,20 @@
+<div class="product" id="product-<%= product.id %>">
+  <h2>
+    <% if product.locale.present? %>
+      <span class="product-locale">[<%= product.locale %>]</span>
+    <% end %>  
+    <span class="product-name"><%= product.name %></span>
+  </h2>
+
+  <% unless product.short_description.blank? %>
+  <div class="product-short_description">
+    <p><%= product.short_description %></p>
+  </div>
+  <% end %>
+  
+  <div class="product-actions">
+    <%= link_to t('ecm.products.product.actions.more') , product %>
+  </div>
+</div>
+
+<hr />

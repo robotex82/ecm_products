@@ -9,7 +9,7 @@ FactoryGirl.define do
     end
     
     factory :ecm_products_product_category_with_products do |product_category|
-      product_category.after_create { |pc| Factory(:ecm_products_product, :ecm_products_product_category => pc) }
+      product_category.after_create { |pc| Factory.create(:ecm_products_product, :ecm_products_product_category => pc) }
       product_category.ecm_products_products_count 1
     end
   end

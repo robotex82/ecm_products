@@ -1,3 +1,3 @@
 <h1>Ecm::Products::Products#index</h1>
 
-<%= render @products %>
+<%= render :partial => "product_preview", :collection => @products, :as => :product %>

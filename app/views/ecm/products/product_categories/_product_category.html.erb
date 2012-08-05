@@ -11,5 +11,26 @@
         <%= link_to product_category.tree_name, product_category %>
       <% end %>
   </div>
+  
+  <% unless product_category.short_description.blank? %>
+    <div class="product_category-short_description">
+      <p><%= product_category.short_description %></p>
+    </div>
+  <% end %> 
+  
+  <% unless product_category.long_description.blank? %>
+    <div class="product_category-long_description">
+      <p><%= product_category.long_description %></p>
+    </div>
+  <% end %>     
 
+  <div class="product_category-products item_list">
+    <h2><%= Ecm::Products::ProductCategory.human_attribute_name(:ecm_products_products) %></h2>  
+    <% if product_category.ecm_products_products_count == 0 %>
+      <%= t('ecm.products.product_category.messages.no_products_available') %>
+      <hr />
+    <% else %>
+      <%= render :partial => 'ecm/products/products/product_preview', :collection => product_category.ecm_products_products, :as => :product %>
+    <% end %>
+  </div>  
 </div>
