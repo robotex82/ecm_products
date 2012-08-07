@@ -1,12 +1,16 @@
 FactoryGirl.define do
-  factory :ecm_products_product, :class => Ecm::Products::Product do
-#    created_at 5.minutes.ago
-#    updated_at 2.minutes.ago    
+  factory :ecm_products_product, :class => Ecm::Products::Product do   
     locale "en"
     sequence(:name){|n| "#{Faker::Product.product_name} {n}" }
 
     ecm_products_product_category
-    main_image { fixture_file_upload(Rails.root + "spec/fixtures/product_main_image.jpg", "image/jpg") }
-    preview_image { fixture_file_upload(Rails.root + "spec/fixtures/product_preview_image.jpg", "image/jpg") }
+    
+    factory :ecm_products_product_with_main_image do |product|
+      main_image { fixture_file_upload(Rails.root + "spec/fixtures/product/main_image.gif", "image/gif") }
+    end
+    
+    factory :ecm_products_product_with_preview_image do |product|
+      preview_image { fixture_file_upload(Rails.root + "spec/fixtures/product/preview_image.gif", "image/gif") }
+    end
   end
 end

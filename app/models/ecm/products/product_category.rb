@@ -28,13 +28,17 @@ class Ecm::Products::ProductCategory < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, :use => :slugged
   
+  # paperclip
+  has_attached_file :main_image, :styles => { :medium_thumb => "160x120", :big_thumb => "360x268" }  
+  has_attached_file :preview_image, :styles => { :medium_thumb => "160x120", :big_thumb => "360x268" }   
+  
   # validations
   validates :name, :presence => true, :uniqueness => { :scope => [ :parent_id ] }
   validates :locale, :presence => true, :if => Proc.new { |pc| pc.parent.nil? } # , :if => :root?
   validates :locale, :absence => true, :if => Proc.new { |pc| !pc.parent.nil? }
   validates :locale, :inclusion => { :in => ['de', 'en'] }, :unless => Proc.new { |pc| pc.locale.blank? }
   
-  # publid methods
+  # public methods
   
   def to_s
     name

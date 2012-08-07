@@ -18,7 +18,7 @@ describe "ecm/products/product_categories/show" do
     view.should render_template(:partial => "_product_category", :count => 1)
   end
   
-  it "show the category name" do
+  it "shows the category name" do
     product_category = FactoryGirl.create(:ecm_products_product_category_tree)
     assign(:product_category, product_category)
     render

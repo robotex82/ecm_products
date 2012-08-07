@@ -5,6 +5,12 @@
     <% end %>  
     <span class="product-name"><%= product.name %></span>
   </h2>
+  
+  <% if product.preview_image? %>
+  <div class="preview-main_image">
+    <%= image_tag(product.preview_image.url) %>
+  </div>
+  <% end %>
 
   <% unless product.short_description.blank? %>
   <div class="product-short_description">

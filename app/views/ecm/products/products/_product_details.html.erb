@@ -1,0 +1,22 @@
+<div class="product" id="product-<%= product.id %>">
+  <h1>
+    <% if product.locale.present? %>
+      <span class="product-locale">[<%= product.locale %>]</span>
+    <% end %>  
+    <span class="product-name"><%= product.name %></span>
+  </h1>
+  
+  <% if product.main_image? %>
+  <div class="product-main_image"><%= image_tag(product.main_image.url) %></div>
+  <% end %>
+  
+  <% if product.short_description.present? %>
+  <div class="product-short_description"><%= product.short_description %></div>
+  <% end %>
+  
+  <% if product.long_description.present? %>
+  <div class="product-long_description"><%= product.long_description %></div>
+  <% end %>  
+  
+  <div class="product-price"><%= humanized_money_with_symbol product.price %></div>
+</div>

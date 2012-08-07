@@ -48,14 +48,14 @@ class Ecm::Products::Product < ActiveRecord::Base
            :order => 'position'
   
   # attributes
-  attr_accessible :locale, 
+  attr_accessible :ecm_products_product_category_id,
+                  :locale, 
                   :long_description, 
                   :main_image,
                   :name, 
                   :position, 
                   :preview_image,
-                  :price_currency, 
-                  :price_in_cents, 
+                  :price, 
                   :price_on_application, 
                   :published_at, 
                   :short_description, 
@@ -73,8 +73,8 @@ class Ecm::Products::Product < ActiveRecord::Base
   monetize :price_cents, :allow_nil => true
   
   # paperclip
-  has_attached_file :main_image  
-  has_attached_file :preview_image  
+  has_attached_file :main_image, :styles => { :medium_thumb => "160x120", :big_thumb => "360x268" }    
+  has_attached_file :preview_image, :styles => { :medium_thumb => "160x120", :big_thumb => "360x268" }    
   
   # validations 
   validates :ecm_products_product_category, :presence => true
