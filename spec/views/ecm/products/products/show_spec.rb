@@ -49,5 +49,21 @@ describe "ecm/products/products/show" do
     assign(:product, product)
     render
     rendered.should have_selector("div.product-price", :text => "#{product[:curency]}#{product[:price]}")
-  end    
+  end   
+  
+  it "shows product links" do
+    product = FactoryGirl.create(:ecm_products_product_with_links)
+    assign(:product, product)
+    render
+    product.ecm_products_product_links.each do |link|
+      rendered.should have_selector("a", :href => link.url)  
+    end    
+  end 
+  
+  it "shows a link to go back to the product category" do
+    product = FactoryGirl.create(:ecm_products_product)
+    assign(:product, product)
+    render
+    rendered.should have_selector("a", :href => "/ecm_products_product_categories/#{product.ecm_products_product_category}")  
+  end   
 end

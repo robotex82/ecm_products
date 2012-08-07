@@ -19,4 +19,19 @@
   <% end %>  
   
   <div class="product-price"><%= humanized_money_with_symbol product.price %></div>
+  
+  <% if product.ecm_products_product_links.present? %>
+  <hr />
+  
+  <div class="product-links">
+  <% product.ecm_products_product_links.each do |product_link| %>
+    <%= render product_link %>
+  <% end %>
+  </div>
+  <% end %>
+
 </div>
+
+<hr />
+
+<%= link_to t('ecm.products.product.actions.back_to_category', :name => product.ecm_products_product_category), product.ecm_products_product_category %>

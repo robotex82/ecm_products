@@ -2,16 +2,18 @@ de:
   ecm:
     products:
       active_admin:
-        menu: "Produkte"
+        menu: Produkte
       product:
         actions:
-          more: "Mehr"
+          back_to_category: Zurück zu %{name}
+          more: Mehr
         messages:
       product_category:
         actions:
-          back_to_index: "Zurück zur Übersicht"
+          back_to_index: Zurück zur Übersicht
         messages:
-          no_products_available: "Keine Produkte in dieser Kategorie vorhanden."  
+          no_products_available: Keine Produkte in dieser Kategorie vorhanden.
       product_link:
         actions:
+          visit: Öffnen
         messages:        
