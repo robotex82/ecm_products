@@ -1,36 +1,23 @@
-<div class="product_category category" id="product_category-<%= product_category.id %>">
+<h1 class="product_category-name"><%= product_category.name %></h1>
 
-  <% if action_name == 'show' %>
-    <h1 class="product_category-name"><%= product_category.name %></h1>
-  <% else %>
-    <h2 class="product_category-name"><%= product_category.name %></h2>
-  <% end %> 
-
-  <div class="product_categories-tree">
-      <%= nested_li(product_category.descendants, {}) do |product_category, level| %>
-        <%= link_to product_category.tree_name, product_category %>
-      <% end %>
-  </div>
+<%= nested_li(product_category.descendants, {}) do |product_category, level| %>
+  <%= link_to product_category.tree_name, product_category %>
+<% end %>
   
-  <% unless product_category.short_description.blank? %>
-    <div class="product_category-short_description">
-      <p><%= product_category.short_description %></p>
-    </div>
-  <% end %> 
+<% unless product_category.short_description.blank? %>
+  <p><%= product_category.short_description %></p>
+<% end %> 
   
-  <% unless product_category.long_description.blank? %>
-    <div class="product_category-long_description">
-      <p><%= product_category.long_description %></p>
-    </div>
-  <% end %>     
+<% unless product_category.long_description.blank? %>
+  <p><%= product_category.long_description %></p>
+<% end %>     
 
-  <div class="product_category-products item_list">
-    <h2><%= Ecm::Products::ProductCategory.human_attribute_name(:ecm_products_products) %></h2>  
-    <% if product_category.ecm_products_products_count == 0 %>
-      <%= t('ecm.products.product_category.messages.no_products_available') %>
-      <hr />
-    <% else %>
-      <%= render :partial => 'ecm/products/products/product_preview', :collection => product_category.ecm_products_products, :as => :product %>
-    <% end %>
-  </div>  
-</div>
+<h2><%= Ecm::Products::ProductCategory.human_attribute_name(:ecm_products_products) %></h2>
+  
+<% if product_category.ecm_products_products_count == 0 %>
+  <%= t('ecm.products.product_category.messages.no_products_available') %>
+<% else %>
+  <ul class="thumbnails product-previews">
+    <%= render :partial => 'ecm/products/products/product_preview', :collection => product_category.ecm_products_products, :as => :product %>
+  </ul>  
+<% end %>

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :ecm_products_product, :class => Ecm::Products::Product do   
     locale "en"
-    sequence(:name){|n| "#{Faker::Product.product_name} {n}" }
+    sequence(:name) {|n| "#{Faker::Product.product_name} #{n}" }
 
     ecm_products_product_category
     
@@ -14,7 +14,7 @@ FactoryGirl.define do
     end
     
     factory :ecm_products_product_with_links do |product|
-      product.after_create { |p| Factory.create_list(:ecm_products_product_link, 10,:ecm_products_product => p) }
+      product.after_create { |p| FactoryGirl.create_list(:ecm_products_product_link, 10,:ecm_products_product => p) }
       product.ecm_products_product_links_count 10
     end    
   end

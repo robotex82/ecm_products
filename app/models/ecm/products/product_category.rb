@@ -14,8 +14,10 @@ class Ecm::Products::ProductCategory < ActiveRecord::Base
                   :lft, 
                   :locale, 
                   :long_description, 
+                  :main_image,
                   :name, 
                   :parent_id, 
+                  :preview_image,
                   :rgt, 
                   :short_description, 
                   :slug
@@ -30,13 +32,13 @@ class Ecm::Products::ProductCategory < ActiveRecord::Base
   
   # paperclip
   has_attached_file :main_image, :styles => { :medium_thumb => "160x120", :big_thumb => "360x268" }  
-  has_attached_file :preview_image, :styles => { :medium_thumb => "160x120", :big_thumb => "360x268" }   
+  has_attached_file :preview_image, :styles => { :small_thumb => "64x48",  :medium_thumb => "160x120", :big_thumb => "360x268" }   
   
   # validations
   validates :name, :presence => true, :uniqueness => { :scope => [ :parent_id ] }
   validates :locale, :presence => true, :if => Proc.new { |pc| pc.parent.nil? } # , :if => :root?
   validates :locale, :absence => true, :if => Proc.new { |pc| !pc.parent.nil? }
-  validates :locale, :inclusion => { :in => ['de', 'en'] }, :unless => Proc.new { |pc| pc.locale.blank? }
+  validate :available_locale, :if => Proc.new { |pc| pc.locale.present? }
   
   # public methods
   
@@ -53,4 +55,17 @@ class Ecm::Products::ProductCategory < ActiveRecord::Base
       "#{root_prefix}#{to_s} (#{self.ecm_products_products_count})"     
     end
   end 
+  
+  def self.for_actual_locale
+    # where(:locale => I18n.locale)  
+    t = self.arel_table
+    where(t[:locale].eq(I18n.locale).or(t[:locale].eq(nil)))
+  end
+  
+  private
+  
+    def available_locale
+      I18n.available_locales.map(&:to_s).include?(self.locale)
+    end
+  # private  
 end 

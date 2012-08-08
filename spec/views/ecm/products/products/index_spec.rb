@@ -12,7 +12,7 @@ describe "ecm/products/products/index" do
     assign(:products, products)
     render
     products.each do |p|
-      rendered.should have_selector("h2", :text => p.name)
+      rendered.should have_selector("h5", :text => p.name)
     end
   end
   

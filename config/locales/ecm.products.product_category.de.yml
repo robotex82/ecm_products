@@ -12,6 +12,7 @@ de:
         preview_image_fingerprint: Vorschaubild Fingerabdruck
         main_image_content_type: Hauptbild Dateityp
         created_at: Erstellt am
+        ecm_products_products: Produkte
         ecm_products_products_count: Produkte
         depth: Baumtiefe
         updated_at: Aktualisiert am

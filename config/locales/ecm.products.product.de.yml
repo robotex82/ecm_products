@@ -23,6 +23,7 @@ de:
         ecm_products_product_category_id: Produktkategorie
         long_description: Langbeschreibung
         preview_image_updated_at: Vorschaubild aktualisiert am
+        ecm_products_product_links: Links
         ecm_products_product_links_count: Links
         preview_image_content_type: Vorschaubild Dateityp
         price_currency: Preiswährung
@@ -31,6 +32,7 @@ de:
         preview_image_file_name: Vorschaubild Dateiname
         published_at: Veröffentlicht am
         preview_image_file_size: Vorschaubild Dateigröße
+        price: Preis
         price_cents: Preis in Cents
         preview_image: Vorschaubild
         main_image: Hauptbild

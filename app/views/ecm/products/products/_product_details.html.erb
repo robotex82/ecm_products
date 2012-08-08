@@ -7,7 +7,7 @@
   </h1>
   
   <% if product.main_image? %>
-  <div class="product-main_image"><%= image_tag(product.main_image.url) %></div>
+  <div class="product-main_image"><%= image_tag(product.main_image.url, :class => 'thumbnail') %></div>
   <% end %>
   
   <% if product.short_description.present? %>
@@ -34,4 +34,7 @@
 
 <hr />
 
-<%= link_to t('ecm.products.product.actions.back_to_category', :name => product.ecm_products_product_category), product.ecm_products_product_category %>
+<%= link_to(product.ecm_products_product_category, :class => 'btn') do %>
+  <i class="icon-arrow-left icon-white"></i>
+  <%= t('ecm.products.product.actions.back_to_category', :name => product.ecm_products_product_category) %>
+<% end %>  

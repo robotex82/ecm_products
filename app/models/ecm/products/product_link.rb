@@ -11,7 +11,8 @@ class Ecm::Products::ProductLink < ActiveRecord::Base
              :counter_cache => :ecm_products_product_links_count
   
   # attributes
-  attr_accessible :description, 
+  attr_accessible :description,
+                  :ecm_products_product_id,
                   :name, 
                   :position, 
                   :url

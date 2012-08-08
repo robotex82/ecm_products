@@ -1,7 +1,6 @@
-<h1>Ecm::Products::ProductCategories#index</h1>
+<h1><%= Ecm::Products::ProductCategory.model_name.human(:count => :other) %></h1>
 
-<div class="product_categories-tree">
-  <%= nested_li(@product_categories, {}) do |product_category, level| %>
-    <%= link_to product_category.tree_name, product_category %>
-  <% end %>
-</div>
+<%= nested_li(@product_categories, { :tree_css_class => 'tree unstyled' }) do |product_category, level| %>
+  <%= link_to product_category.tree_name, product_category %>
+<% end %>
+

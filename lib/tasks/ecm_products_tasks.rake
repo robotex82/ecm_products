@@ -2,10 +2,16 @@ namespace :ecm_products do
   namespace :db do
     desc "Purges and creates example data"
     task :populate!, [] => [:environment] do |t, args|
+
+      Rake::Task["ecm_products:db:clear!"].execute
+      Rake::Task["ecm_products:db:populate"].execute
+    end
+    
+    desc "Clears all data!"
+    task :clear!, [] => [:environment] do |t, args|
       Ecm::Products::ProductCategory.delete_all
       Ecm::Products::Product.delete_all
       Ecm::Products::ProductLink.delete_all
-      Rake::Task["ecm_products:db:populate"].execute
     end
     
     desc "Creates example_data"
@@ -20,8 +26,8 @@ namespace :ecm_products do
           pc.name              = Faker::Product.brand
           pc.short_description = Faker::Lorem.paragraph(2)
           pc.long_description  = Faker::Lorem.paragraph(10)   
-          pc.preview_image     = File.open(Rails.root + "spec/fixtures/product/preview_image.gif")
-          pc.main_image        = File.open(Rails.root + "spec/fixtures/product/main_image.gif")     
+          pc.preview_image     = File.open(ECM::Products::Engine.root + "spec/fixtures/product/preview_image.gif")
+          pc.main_image        = File.open(ECM::Products::Engine.root + "spec/fixtures/product/main_image.gif")     
         end
       end
       
@@ -33,8 +39,8 @@ namespace :ecm_products do
           pc.name              = Faker::Product.brand
           pc.short_description = Faker::Lorem.paragraph(2)
           pc.long_description  = Faker::Lorem.paragraph(10) 
-          pc.preview_image     = File.open(Rails.root + "spec/fixtures/product_category/preview_image.gif")
-          pc.main_image        = File.open(Rails.root + "spec/fixtures/product_category/main_image.gif")           
+          pc.preview_image     = File.open(ECM::Products::Engine.root + "spec/fixtures/product_category/preview_image.gif")
+          pc.main_image        = File.open(ECM::Products::Engine.root + "spec/fixtures/product_category/main_image.gif")           
         end
       end      
       
@@ -47,8 +53,8 @@ namespace :ecm_products do
           p.short_description    = Faker::Lorem.paragraph(rand(2))
           p.long_description     = Faker::Lorem.paragraph(rand(10))   
           p.price_on_application = [true, false].choice     
-          p.preview_image        = File.open(Rails.root + "spec/fixtures/product_category/preview_image.gif")
-          p.main_image           = File.open(Rails.root + "spec/fixtures/product_category/main_image.gif")    
+          p.preview_image        = File.open(ECM::Products::Engine.root + "spec/fixtures/product_category/preview_image.gif")
+          p.main_image           = File.open(ECM::Products::Engine.root + "spec/fixtures/product_category/main_image.gif")    
           
           p.ecm_products_product_category = product_categories.choice
           

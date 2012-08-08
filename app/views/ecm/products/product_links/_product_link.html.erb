@@ -1,7 +1,12 @@
 <h3><%= product_link.name %></h3>
 
-<div class="product_link-description">
+<p class="product_link-description">
   <%= product_link.description %>
-</div>
+</p>
 
-<%= link_to t('ecm.products.product_link.actions.visit'), product_link.url, :class => "product_link-url" %>
+<%= link_to product_link.url, :class => "product_link-url open-link external-link btn" do %>
+  <i class="icon-info-sign icon-white"></i>
+  <%= t('ecm.products.product_link.actions.visit') %>
+<% end %>
+
+<hr />

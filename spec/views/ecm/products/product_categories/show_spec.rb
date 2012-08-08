@@ -46,21 +46,21 @@ describe "ecm/products/product_categories/show" do
     @product_category = FactoryGirl.create(:ecm_products_product_category_with_parent)
     assign(:product_category, @product_category)
     render
-    rendered.should have_link("parent category", :href => "/ecm_products_product_categories/#{@product_category.parent.to_param}")
+    rendered.should have_selector("a", :href => "/product-categories/#{@product_category.parent.to_param}")
   end  
   
   it "shows the product category short description" do
     @product_category = FactoryGirl.create(:ecm_products_product_category, :short_description => 'This is the short description')
     assign(:product_category, @product_category)
     render
-    rendered.should have_selector("div.product_category-short_description", :text => @product_category.short_description)
+    rendered.should have_selector("p", :text => @product_category.short_description)
   end   
   
   it "shows the product category long description" do
     @product_category = FactoryGirl.create(:ecm_products_product_category, :long_description => 'This is the long description')
     assign(:product_category, @product_category)
     render
-    rendered.should have_selector("div.product_category-long_description", :text => @product_category.long_description)
+    rendered.should have_selector("p", :text => @product_category.long_description)
   end    
   
   it "shows the products" do
@@ -68,7 +68,7 @@ describe "ecm/products/product_categories/show" do
     assign(:product_category, @product_category)
     render
     @product_category.ecm_products_products.each do |p| 
-      rendered.should have_selector("h2", :text => p.name)
+      rendered.should have_selector("h5", :text => p.name)
     end      
   end  
 end

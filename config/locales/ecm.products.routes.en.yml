@@ -1,0 +1,5 @@
+en:
+  resources:
+    ecm_products_products: products
+    ecm_products_product_categories: product-categories
+    ecm_products_product_links: product-links

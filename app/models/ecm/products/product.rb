@@ -78,15 +78,20 @@ class Ecm::Products::Product < ActiveRecord::Base
   
   # validations 
   validates :ecm_products_product_category, :presence => true
-  validates :locale, :inclusion => ['de', 'en'], :unless => Proc.new { |c| c.locale.blank? }
+  validate :available_locale, :unless => Proc.new { |c| c.locale.blank? }
   validates :name, :presence => true  
 #  validates_attachment_presence :main_image  
 #  validates_attachment_presence :preview_image
   
   # private methods
+  
   private 
-  def fix_updated_position
-    Rails.logger.debug "Fixing positions for #{self.to_s} (Moving to last)"
-    add_to_list_bottom
-  end
+    def fix_updated_position
+      Rails.logger.debug "Fixing positions for #{self.to_s} (Moving to last)"
+      add_to_list_bottom
+    end
+    
+    def available_locale
+      I18n.available_locales.map(&:to_s).include?(self.locale)
+    end
 end

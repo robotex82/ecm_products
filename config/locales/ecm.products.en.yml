@@ -10,6 +10,7 @@ en:
         messages:
       product_category:
         actions:
+          back_to_parent: back to %{name}
           back_to_index: back to the index
         messages:
           no_products_available: No products available in this category.

@@ -12,6 +12,7 @@ en:
         preview_image_fingerprint: preview image fingerprint
         main_image_content_type: main image content type
         created_at: created at
+        ecm_products_products: products
         ecm_products_products_count: products
         depth: depth
         updated_at: updated at

@@ -1,3 +1,17 @@
 = EcmProducts
 
+= Installation
+
+  gem 'ecm_products'
+  
+  bundle install
+
+  rake ecm_products_engine:install:migrations
+  
+  rake db:migrate
+  
+= Create sample data
+
+  rake ecm_products:db:populate
+
 This project rocks and uses MIT-LICENSE.

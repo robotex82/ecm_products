@@ -22,6 +22,12 @@ gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 # Patched guard rails
 gem 'guard-rails',  :git => 'git://github.com/robotex82/guard-rails.git', :branch => 'better-engine-support'
 
+## Acts as published
+#gem 'acts_as_published',  :path => '/home/robo/rails/modules/acts_as_published-master'
+
+## Active admin awesome nested set
+#gem 'active_admin-awesome_nested_set',  :path => '/home/robo/rails/modules/active_admin-awesome_nested_set'
+
 unless ENV['TRAVIS_RUBY_VERSION'].nil?
   gem 'pg'
   gem 'mysql2'
