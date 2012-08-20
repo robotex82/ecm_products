@@ -1,0 +1,10 @@
+<h2 class="product_category-name"><%= product_category.name %></h1>
+
+<% unless product_category.short_description.blank? %>
+  <p><%= product_category.short_description %></p>
+<% end %> 
+
+<%= link_to product_category, :class => 'btn link-more' do %>
+  <i class="icon-arrow-right"></i>
+  <%= product_category.tree_name %>
+<% end %>

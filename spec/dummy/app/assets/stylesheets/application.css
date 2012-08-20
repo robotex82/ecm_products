@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+ 
+.product-previews .thumbnail {
+  width: 160px;
+}

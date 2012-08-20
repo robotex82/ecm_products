@@ -10,6 +10,7 @@ de:
         messages:
       product_category:
         actions:
+          all: Alle anzeigen
           back_to_parent: Zurück zu %{name}
           back_to_index: Zurück zur Übersicht
         messages:

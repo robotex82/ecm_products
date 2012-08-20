@@ -18,6 +18,10 @@
   <%= t('ecm.products.product_category.messages.no_products_available') %>
 <% else %>
   <ul class="thumbnails product-previews">
-    <%= render :partial => 'ecm/products/products/product_preview', :collection => product_category.ecm_products_products, :as => :product %>
+  <% product_category.ecm_products_products.each_with_index do |product, index| %>
+    <li>
+    <%= render :partial => 'ecm/products/products/product_preview', :locals => { :product => product, :product_counter => index } %>
+    </li>
+  <% end %>  
   </ul>  
 <% end %>

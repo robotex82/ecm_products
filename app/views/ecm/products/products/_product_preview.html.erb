@@ -1,18 +1,16 @@
-<li>
-  <div class="thumbnail <%= product_counter.odd? ? "even" : "odd" %>">
+<div class="thumbnail <%= product_counter.odd? ? "even" : "odd" %>">
+
+  <%= image_tag(product.preview_image.url) %>
   
-    <%= image_tag(product.preview_image.url) %>
+  <div class="caption">
+    <h5><%= product.name %></h5>
+    <p class="short_description"><%= product.short_description %></p>
     
-    <div class="caption">
-      <h5><%= product.name %></h5>
-      <p class="short_description"><%= product.short_description %></p>
-      
-      <p>
-      <%= link_to(product, :class => "more-link btn") do %>
-        <i class="icon-info-sign icon-white"></i>
-        <%= t('ecm.products.product.actions.more') %>
-      <% end %>
-      </p>
-    </div>
+    <p>
+    <%= link_to(product, :class => "more-link btn") do %>
+      <i class="icon-info-sign"></i>
+      <%= t('ecm.products.product.actions.more') %>
+    <% end %>
+    </p>
   </div>
-</li>
+</div>

@@ -1,1 +1,24 @@
-<h1>home#index</h1>
+<h1>Example of product category rendering</h1>
+
+<% pc = Ecm::Products::ProductCategory.where(:locale => I18n.locale).first %>
+
+<p>The following section should show the product category "<%= pc.name %>":</p>
+
+<%= render_product_category(pc.name) %>
+
+<p>This is the result of calling:</p>
+
+<pre>render_product_category('<%= pc.name %>')</pre>
+
+<h1>Example of product rendering</h1>
+
+<% p = pc.ecm_products_products.first %>
+
+<p>The following section should show the product "<%= p.name %>":</p>
+
+<div class="product-previews">
+  <%= render_product(p.name) %>
+</div>
+<p>This is the result of calling:</p>
+
+<pre>render_product('<%= p.name %>')</pre>

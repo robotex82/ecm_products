@@ -3,14 +3,14 @@
 <% if @product_category.root? %>
 
   <%= link_to(ecm_products_product_categories_path, :class => 'back-link btn') do %>
-    <i class="icon-arrow-left icon-white"></i>
+    <i class="icon-arrow-left"></i>
     <%= t('ecm.products.product_category.actions.back_to_index') %>
   <% end %>
   
 <% else %>
 
   <%= link_to(@product_category.parent, :class => 'back-link btn') do %>
-    <i class="icon-arrow-left icon-white"></i>
+    <i class="icon-arrow-left"></i>
     <%= t('ecm.products.product_category.actions.back_to_parent', :name => @product_category.parent.to_s) %>
   <% end %>
   
