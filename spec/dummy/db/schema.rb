@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803120003) do
+ActiveRecord::Schema.define(:version => 20120821153040) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(:version => 20120803120003) do
   add_index "ecm_products_product_links", ["ecm_products_product_id"], :name => "index_ecm_products_product_links_on_ecm_products_product_id"
 
   create_table "ecm_products_products", :force => true do |t|
-    t.string   "locale"
     t.string   "name"
     t.text     "short_description"
     t.text     "long_description"

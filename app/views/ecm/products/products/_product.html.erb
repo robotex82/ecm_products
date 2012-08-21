@@ -1,10 +1,5 @@
 <div class="product" id="product-<%= product.id %>">
-  <h2>
-    <% if product.locale.present? %>
-      <span class="product-locale">[<%= product.locale %>]</span>
-    <% end %>  
-    <span class="product-name"><%= product.name %></span>
-  </h2>
+  <h2 class="product-name"><%= product.name %></h2>
   <ul>
     <li class="product-created_at"><%= Ecm::Products::Product.human_attribute_name(:created_at) %>: <%= l(product.created_at) rescue nil %></li>
     <li class="product-updated_at"><%= Ecm::Products::Product.human_attribute_name(:updated_at) %>: <%= l(product.updated_at) rescue nil %></li>

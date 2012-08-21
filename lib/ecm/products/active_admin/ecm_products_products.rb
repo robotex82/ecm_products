@@ -5,7 +5,6 @@
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs do
       f.input :ecm_products_product_category
-      f.input :locale, :as => :select, :collection => I18n.available_locales.map(&:to_s)
       f.input :name
       f.input :short_description
       f.input :long_description
@@ -23,8 +22,7 @@
     column :preview_image do |p|
       link_to(image_tag(p.preview_image.url(:medium_thumb)), [:admin, p]) 
     end  
-    column :ecm_products_product_category
-    column :locale      
+    column :ecm_products_product_category   
     column :name
     column :short_description
     column :created_at

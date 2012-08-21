@@ -1,10 +1,5 @@
 <div class="product" id="product-<%= product.id %>">
-  <h1>
-    <% if product.locale.present? %>
-      <span class="product-locale">[<%= product.locale %>]</span>
-    <% end %>  
-    <span class="product-name"><%= product.name %></span>
-  </h1>
+  <h1 class="product-name"><%= product.name %></h1>
   
   <% if product.main_image? %>
   <div class="product-main_image"><%= image_tag(product.main_image.url, :class => 'thumbnail') %></div>

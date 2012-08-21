@@ -2,7 +2,6 @@
 class CreateEcmProductsProducts < ActiveRecord::Migration
   def change
     create_table :ecm_products_products do |t|
-      t.string :locale
       t.string :name
       t.text :short_description
       t.text :long_description

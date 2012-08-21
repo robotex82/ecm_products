@@ -48,7 +48,6 @@ namespace :ecm_products do
       product_categories = Ecm::Products::ProductCategory.all
       100.times do
         Ecm::Products::Product.create! do |p|
-          p.locale               = I18n.available_locales.choice.to_s 
           p.name                 = Faker::Product.product_name
           p.short_description    = Faker::Lorem.paragraph(rand(2))
           p.long_description     = Faker::Lorem.paragraph(rand(10))   
