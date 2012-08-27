@@ -7,13 +7,13 @@
   
   <% unless product.short_description.blank? %>
   <div class="product-short_description">
-    <p><%= product.short_description %></p>
+    <p><%= mu(product, :short_description) %></p>
   </div>
   <% end %>
   
   <% unless product.long_description.blank? %>
   <div class="product-long_description">
-    <p><%= product.long_description %></p>
+    <p><%= mu(product, :long_description) %></p>
   </div>
   <% end %>
   

@@ -1,7 +1,7 @@
 <h2 class="product_category-name"><%= product_category.name %></h1>
 
 <% unless product_category.short_description.blank? %>
-  <p><%= product_category.short_description %></p>
+  <p><%= mu(product_category, :short_description) %></p>
 <% end %> 
 
 <%= link_to product_category, :class => 'btn link-more' do %>

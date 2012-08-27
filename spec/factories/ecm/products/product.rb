@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :ecm_products_product, :class => Ecm::Products::Product do   
     sequence(:name) {|n| "#{Faker::Product.product_name} #{n}" }
-
+    markup_language "textile"
+    
     ecm_products_product_category
     
     factory :ecm_products_product_with_main_image do |product|

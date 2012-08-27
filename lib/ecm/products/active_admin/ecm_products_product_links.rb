@@ -9,6 +9,11 @@
       f.input :url
       f.input :description  
     end
+    
+    f.inputs do
+      f.input :markup_language, :as => :select, :collection => Ecm::Products::ProductLink::MARKUP_LANGUAGES    
+    end
+    
     f.actions
   end  
   
@@ -28,6 +33,7 @@
       row :url do |pl|
         link_to(pl.url, pl.url)
       end
+      row :markup_language
       row :created_at
       row :updated_at      
     end

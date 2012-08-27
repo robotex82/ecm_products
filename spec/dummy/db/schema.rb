@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120821153040) do
+ActiveRecord::Schema.define(:version => 20120827144057) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20120821153040) do
     t.string   "name"
     t.text     "short_description"
     t.text     "long_description"
+    t.string   "markup_language"
     t.integer  "ecm_products_products_count", :default => 0, :null => false
     t.integer  "lft"
     t.integer  "rgt"
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20120821153040) do
     t.string   "name"
     t.string   "url"
     t.text     "description"
+    t.string   "markup_language"
     t.integer  "ecm_products_product_id"
     t.integer  "position"
     t.datetime "created_at",              :null => false
@@ -86,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20120821153040) do
     t.string   "name"
     t.text     "short_description"
     t.text     "long_description"
+    t.string   "markup_language"
     t.boolean  "price_on_application"
     t.integer  "ecm_products_product_links_count", :default => 0, :null => false
     t.integer  "ecm_products_product_category_id"

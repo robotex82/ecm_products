@@ -22,8 +22,8 @@
         <div class="nav-collapse">
           <ul class="nav">
             <li class="active"><a href="<%= root_path %>">Home</a></li>
-            <li><%= link_to 'Example Product Category', ecm_products_product_category_path(Ecm::Products::ProductCategory.first) %></li>
-            <li><%= link_to 'Example Product', ecm_products_product_path(Ecm::Products::Product.first) %></li>
+            <li><%= link_to('Example Product Category', ecm_products_product_category_path(@_pc)) if @_pc %></li>
+            <li><%= link_to('Example Product', ecm_products_product_path(@_p)) if @_p %></li>
             <li><%= link_to Ecm::Products::ProductCategory.model_name.human(:count => 10), ecm_products_product_categories_path %></li>
           </ul>            
         </div><!-- /.nav-collapse -->

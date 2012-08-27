@@ -1,7 +1,7 @@
 <h3><%= product_link.name %></h3>
 
 <p class="product_link-description">
-  <%= product_link.description %>
+  <%= mu(product_link, :description) %>
 </p>
 
 <%= link_to product_link.url, :class => "product_link-url open-link external-link btn" do %>

@@ -6,14 +6,18 @@
   <% end %>
   
   <% if product.short_description.present? %>
-  <div class="product-short_description"><%= product.short_description %></div>
+  <div class="product-short_description"><%= mu(product, :short_description) %></div>
   <% end %>
   
   <% if product.long_description.present? %>
-  <div class="product-long_description"><%= product.long_description %></div>
+  <div class="product-long_description"><%= mu(product, :long_description) %></div>
   <% end %>  
   
-  <div class="product-price"><%= humanized_money_with_symbol product.price %></div>
+  <% if product.price.present? %>
+  <div class="product-price">
+    <p><%= Ecm::Products::Product.human_attribute_name(:price) %>: <%= humanized_money_with_symbol product.price %></p>
+  </div>
+  <% end %>
   
   <% if product.ecm_products_product_links.present? %>
   <hr />

@@ -5,25 +5,26 @@ class CreateEcmProductsProducts < ActiveRecord::Migration
       t.string :name
       t.text :short_description
       t.text :long_description
-      t.boolean :price_on_application   
-      
+      t.string :markup_language
+      t.boolean :price_on_application
+
       # associations
       t.integer :ecm_products_product_links_count, :default => 0, :null => false
-      t.references :ecm_products_product_category   
-      
+      t.references :ecm_products_product_category
+
       # acts as list
       t.integer :position
 
       # acts as published
       t.timestamp :published_at
-      
+
       # friendly id
       t.string :slug
-      
+
       # money
       t.integer :price_cents
       t.string :price_currency
-      
+
       # paperclip
       # t.attachment :preview_image
       t.string :preview_image_file_name
@@ -31,14 +32,14 @@ class CreateEcmProductsProducts < ActiveRecord::Migration
       t.string :preview_image_content_type
       t.timestamp :preview_image_updated_at
       t.string :preview_image_fingerprint
-      
+
       # paperclip
       # t.attachment :main_image
       t.string :main_image_file_name
       t.integer :main_image_file_size
       t.string :main_image_content_type
       t.timestamp :main_image_updated_at
-      t.string :main_image_fingerprint  
+      t.string :main_image_fingerprint
 
       t.timestamps
     end

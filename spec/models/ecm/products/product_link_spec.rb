@@ -14,6 +14,15 @@ module Ecm
       # validations
       it { should validate_presence_of(:name) }
       it { should validate_presence_of(:url) }
+      it { should validate_presence_of(:markup_language) }
+
+      %w(markdown textile rdoc).each do |value|
+        it { should allow_value(value).for(:markup_language) }
+      end
+
+      %w(some other values that are not allowed).each do |value|
+        it { should_not allow_value(value).for(:markup_language) }
+      end
     end
   end
 end      

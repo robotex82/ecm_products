@@ -14,6 +14,11 @@
       f.input :preview_image, :as => :file
       f.input :main_image, :as => :file      
     end
+    
+    f.inputs do
+      f.input :markup_language, :as => :select, :collection => Ecm::Products::Product::MARKUP_LANGUAGES    
+    end
+    
     f.actions
   end
   
@@ -41,6 +46,7 @@
       row :price
       row :price_on_application
       row :published_at
+      row :markup_language
       row :created_at
       row :updated_at
     end  

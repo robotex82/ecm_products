@@ -35,7 +35,10 @@ class Ecm::Products::Product < ActiveRecord::Base
   
   # acts as list
   acts_as_list :scope => :ecm_products_product_category 
-  
+
+  # acts as markup
+  acts_as_markup :language => :variable, :columns => [ :long_description, :short_description ]
+    
   # associations
   belongs_to :ecm_products_product_category, 
              :class_name => Ecm::Products::ProductCategory, 
@@ -51,6 +54,7 @@ class Ecm::Products::Product < ActiveRecord::Base
   attr_accessible :ecm_products_product_category_id,
                   :long_description, 
                   :main_image,
+                  :markup_language,
                   :name, 
                   :position, 
                   :preview_image,
@@ -61,9 +65,13 @@ class Ecm::Products::Product < ActiveRecord::Base
                   :slug
                   
   # callbacks
+  after_initialize :set_defaults   
   after_update :fix_updated_counters
   before_update :fix_updated_position, :if => Proc.new { |d| !position.blank? && d.ecm_products_product_category_id_changed? }
-                  
+      
+  # constants
+  MARKUP_LANGUAGES = %w(markdown textile rdoc)  
+              
   # friendly id
   extend FriendlyId
   friendly_id :name, :use => :slugged
@@ -78,8 +86,8 @@ class Ecm::Products::Product < ActiveRecord::Base
   # validations 
   validates :ecm_products_product_category, :presence => true
   validates :name, :presence => true  
-#  validates_attachment_presence :main_image  
-#  validates_attachment_presence :preview_image
+  validates :markup_language, :presence  => true, 
+                              :inclusion => MARKUP_LANGUAGES
   
   # private methods
   
@@ -88,4 +96,10 @@ class Ecm::Products::Product < ActiveRecord::Base
       Rails.logger.debug "Fixing positions for #{self.to_s} (Moving to last)"
       add_to_list_bottom
     end
+    
+  def set_defaults
+    if self.new_record?
+      self.markup_language ||= 'textile'
+    end  
+  end
 end

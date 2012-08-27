@@ -12,6 +12,11 @@
       f.input :preview_image, :as => :file, :hint => f.template.image_tag(f.object.preview_image.url(:medium_thumb))
       f.input :main_image, :as => :file, :hint => f.template.image_tag(f.object.main_image.url(:medium_thumb))
     end
+    
+    f.inputs do
+      f.input :markup_language, :as => :select, :collection => Ecm::Products::ProductCategory::MARKUP_LANGUAGES    
+    end
+    
     f.actions
   end
   
@@ -38,6 +43,7 @@
       row :parent
       row :name
       row :ecm_products_products_count
+      row :markup_language
       row :created_at
       row :updated_at      
     end

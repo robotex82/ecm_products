@@ -1,5 +1,7 @@
 <%= render @product_category %>
 
+<br />
+
 <% if @product_category.root? %>
 
   <%= link_to(ecm_products_product_categories_path, :class => 'back-link btn') do %>

@@ -4,10 +4,11 @@ class CreateEcmProductsProductLinks < ActiveRecord::Migration
       t.string :name
       t.string :url
       t.text :description
-      
+      t.string :markup_language
+
       # associations
       t.references :ecm_products_product
-      
+
       # acts as list
       t.integer :position
 

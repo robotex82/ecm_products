@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
   s.add_dependency "active_admin-acts_as_list"
   s.add_dependency "active_admin-awesome_nested_set", '~>0.0.3'
   s.add_dependency 'acts_as_list'
+  s.add_dependency 'acts_as_markup'
+#  s.add_dependency 'acts_as_published', '0.0.8.pre'
   s.add_dependency 'awesome_nested_set'
   s.add_dependency 'awesome_nested_set-tools'
   s.add_dependency 'friendly_id'
