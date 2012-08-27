@@ -1,7 +1,7 @@
 <h1 class="product_category-name"><%= product_category.name %></h1>
 
-<%= nested_li(product_category.descendants, {}) do |product_category, level| %>
-  <%= link_to product_category.tree_name, product_category %>
+<%= nested_li(product_category.descendants, {}) do |pc, level| %>
+  <%= link_to pc.tree_name, pc %>
 <% end %>
   
 <% unless product_category.short_description.blank? %>

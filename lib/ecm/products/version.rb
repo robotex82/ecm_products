@@ -1,5 +1,5 @@
 module ECM
   module Products
-    VERSION = "0.0.2.pre"
+    VERSION = "0.0.3.pre"
   end  
 end
