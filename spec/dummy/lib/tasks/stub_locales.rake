@@ -4,6 +4,8 @@ require 'locale_generator'
 namespace :locales do
   desc "Stubs out locale files for all active record descendants."
   task :stub, [] => [:environment] do |t, args|
+    Rails.application.eager_load!
+    
     # Loop over all AR models
     ActiveRecord::Base.descendants.each do |model|
       # Loop over available locales
