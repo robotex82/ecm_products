@@ -53,8 +53,7 @@
         column :preview_image do |p|
           link_to(image_tag(p.preview_image.url(:medium_thumb)), [:admin, p]) 
         end  
-        column :ecm_products_product_category
-        column :locale      
+        column :ecm_products_product_category  
         column :name
         column :short_description
         column :created_at
