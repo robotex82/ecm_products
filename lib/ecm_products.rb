@@ -10,5 +10,12 @@ require 'paperclip'
 require 'rails_tools-absence_validator'
 
 require 'ecm/products/engine'
+require 'ecm/products/configuration'
 require 'ecm/products/routing'
+
+module Ecm
+  module Products
+    extend Configuration
+  end
+end
 

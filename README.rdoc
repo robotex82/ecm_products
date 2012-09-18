@@ -2,16 +2,35 @@
 
 = Installation
 
-  gem 'ecm_products'
-  
-  bundle install
+Add the gem to your bundle:
 
-  rake ecm_products_engine:install:migrations
-  
-  rake db:migrate
-  
+  # Gemfile
+  gem 'ecm_products'
+
+Install your bundle:
+
+  > bundle install
+
+Generate initializer:
+
+  > rails generate ecm:products:install
+
+Add migrations:
+
+  > rake ecm_products_engine:install:migrations
+
+Migrate:
+
+  > rake db:migrate
+
+Add the routes:
+
+  # config/routes.rb
+  Ecm::Products::Routing.routes(self)
+
 = Create sample data
 
   rake ecm_products:db:populate
 
 This project rocks and uses MIT-LICENSE.
+
