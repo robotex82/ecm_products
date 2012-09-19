@@ -41,18 +41,32 @@ include ActiveAdmin::AwesomeNestedSet::Helper if defined?(ActiveAdmin)
     default_actions
   end
 
-  show do
-    panel Ecm::Products::ProductCategory.human_attribute_name(:preview_image) do
-      div { image_tag(ecm_products_product_category.preview_image.url) }
+  show :title => :to_s do
+    panel Ecm::Products::ProductCategory.human_attribute_name(:main_image) do
+      div { image_tag(ecm_products_product_category.main_image.url) }
     end
 
-    attributes_table do
-      row :parent
-      row :name
-      row :ecm_products_products_count
-      row :markup_language
-      row :created_at
-      row :updated_at
+    panel Ecm::Products::ProductCategory.human_attribute_name(:children) do
+      table_for ecm_products_product_category.descendants, :i18n => Ecm::Products::ProductCategory do
+        sortable_tree_columns
+        column(:name) { |child| link_to child, [:admin, child], :style => "margin-left: #{30 * (child.level -  ecm_products_product_category.level - 1)}px" }
+        column :short_description
+        column :ecm_products_products_count
+        column :created_at
+        column :updated_at
+        column do |child|
+          link_to(I18n.t('active_admin.view'), [:admin, child], :class => "member_link view_link") +
+          link_to(I18n.t('active_admin.edit'), [:edit, :admin, child], :class => "member_link edit_link")
+        end
+      end
+    end
+
+    panel Ecm::Products::ProductCategory.human_attribute_name(:short_description) do
+      div { ecm_products_product_category.short_description }
+    end
+
+    panel Ecm::Products::ProductCategory.human_attribute_name(:long_description) do
+      div { ecm_products_product_category.long_description }
     end
 
     panel Ecm::Products::ProductCategory.human_attribute_name(:ecm_products_products) do
@@ -71,18 +85,18 @@ include ActiveAdmin::AwesomeNestedSet::Helper if defined?(ActiveAdmin)
         end
       end
     end
+  end # show
 
-    panel Ecm::Products::ProductCategory.human_attribute_name(:main_image) do
-      div { image_tag(ecm_products_product_category.main_image.url) }
+  sidebar Ecm::Products::ProductCategory.human_attribute_name(:details), :only => :show do
+    div { image_tag(ecm_products_product_category.preview_image.url(:medium_thumb)) }
+    attributes_table_for ecm_products_product_category do
+      row :parent
+      row :name
+      row :ecm_products_products_count
+      row :markup_language
+      row :created_at
+      row :updated_at
     end
-
-    panel Ecm::Products::ProductCategory.human_attribute_name(:short_description) do
-      div { ecm_products_product_category.short_description }
-    end
-
-    panel Ecm::Products::ProductCategory.human_attribute_name(:long_description) do
-      div { ecm_products_product_category.long_description }
-    end
-  end
+  end # sidebar
 end if defined?(::ActiveAdmin)
 

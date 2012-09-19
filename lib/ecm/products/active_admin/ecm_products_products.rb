@@ -41,19 +41,8 @@ include ActiveAdmin::ActsAsList::Helper if defined?(ActiveAdmin)
   end
 
   show do
-    panel Ecm::Products::Product.human_attribute_name(:preview_image) do
-      div { image_tag(ecm_products_product.preview_image.url) }
-    end
-
-    attributes_table do
-      row :ecm_products_product_category
-      row :name
-      row :price
-      row :price_on_application
-      row :published_at
-      row :markup_language
-      row :created_at
-      row :updated_at
+    panel Ecm::Products::Product.human_attribute_name(:main_image) do
+      div { image_tag(ecm_products_product.main_image.url) }
     end
 
     panel Ecm::Products::Product.human_attribute_name(:ecm_products_product_pictures) do
@@ -89,10 +78,6 @@ include ActiveAdmin::ActsAsList::Helper if defined?(ActiveAdmin)
       end
     end
 
-    panel Ecm::Products::Product.human_attribute_name(:main_image) do
-      div { image_tag(ecm_products_product.main_image.url) }
-    end
-
     panel Ecm::Products::Product.human_attribute_name(:short_description) do
       div { ecm_products_product.short_description }
     end
@@ -101,5 +86,19 @@ include ActiveAdmin::ActsAsList::Helper if defined?(ActiveAdmin)
       div { ecm_products_product.long_description }
     end
   end
+
+  sidebar Ecm::Products::Product.human_attribute_name(:details), :only => :show do
+    div { image_tag(ecm_products_product.preview_image.url(:medium_thumb)) }
+    attributes_table_for ecm_products_product do
+      row :ecm_products_product_category
+      row :name
+      row(:price) { |p| humanized_money_with_symbol p.price }
+      row(:price_on_application) { |p| I18n.t(p.price_on_application) }
+      row :published_at
+      row :markup_language
+      row :created_at
+      row :updated_at
+    end
+  end # sidebar
 end if defined?(::ActiveAdmin)
 

@@ -1,39 +1,41 @@
---- 
-en: 
-  activerecord: 
-    models: 
-      ecm/products/product: 
+---
+en:
+  activerecord:
+    models:
+      ecm/products/product:
         one: product
         other: products
-    attributes: 
-      ecm/products/product: 
-        name: name
-        preview_image_fingerprint: preview image fingerprint
-        position: position
-        slug: friendly id
-        main_image_content_type: main image content type
+    attributes:
+      ecm/products/product:
         created_at: created at
-        main_image_updated_at: main image updated at
-        updated_at: updated at
-        short_description: short_description
+        ecm_products_product_category_id: product category
+        ecm_products_product_category: product category
+        ecm_products_product_links_count: product links
+        ecm_products_product_links: links
+        ecm_products_product_pictures: pictures
+        locale: language
+        long_description: long description
+        main_image_content_type: main image content type
         main_image_file_name: main image file name
         main_image_file_size: main image file size
         main_image_fingerprint: main image fingerprint
-        ecm_products_product_category: product category
-        ecm_products_product_category_id: product category
-        long_description: long description
-        preview_image_updated_at: preview_image updated at
-        ecm_products_product_links: links
-        ecm_products_product_links_count: product links
-        preview_image_content_type: preview image content type
-        price_currency: price currency
-        locale: language
-        price_on_application: price on application
-        preview_image_file_name: preview image file name
-        published_at: published at
-        preview_image_file_size: preview image file size
-        price: price
-        price_cents: price cents
-        preview_image: preview image
         main_image: main image
+        main_image_updated_at: main image updated at
         markup_language: markup language
+        name: name
+        position: position
+        preview_image_content_type: preview image content type
+        preview_image_file_name: preview image file name
+        preview_image_file_size: preview image file size
+        preview_image_fingerprint: preview image fingerprint
+        preview_image: preview image
+        preview_image_updated_at: preview_image updated at
+        price_cents: price cents
+        price_currency: price currency
+        price_on_application: price on application
+        price: price
+        published_at: published at
+        short_description: short_description
+        slug: friendly id
+        updated_at: updated at
+

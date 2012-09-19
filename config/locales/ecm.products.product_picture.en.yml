@@ -1,23 +1,25 @@
---- 
-en: 
-  activerecord: 
-    models: 
-      ecm/products/product_picture: 
+---
+en:
+  activerecord:
+    models:
+      ecm/products/product_picture:
         one: product picture
         other: product pictures
-    attributes: 
-      ecm/products/product_picture: 
+    attributes:
+      ecm/products/product_picture:
+        created_at: created at
+        description: description
+        ecm_products_product_id: product
+        ecm_products_product: product
+        image_content_type: content type
+        image_file_name: filename
+        image_file_size: filesize
+        image_fingerprint: fingerprint
+        image_updated_at: file updated at
+        markup_language: markup language
         name: name
         position: position
         slug: friendly id
-        image_file_name: filename
-        created_at: created at
-        image_file_size: filesize
+        thumbnail: picture
         updated_at: updated at
-        image_content_type: content type
-        image_fingerprint: fingerprint
-        ecm_products_product: product        
-        ecm_products_product_id: product
-        markup_language: markup language
-        description: description
-        image_updated_at: file updated at 
+

@@ -1,36 +1,38 @@
---- 
-en: 
-  activerecord: 
-    models: 
-      ecm/products/product_category: 
+---
+en:
+  activerecord:
+    models:
+      ecm/products/product_category:
         one: product category
         other: product categories
-    attributes: 
-      ecm/products/product_category: 
-        slug: slug
-        name: name
-        preview_image_fingerprint: preview image fingerprint
-        main_image_content_type: main image content type
+    attributes:
+      ecm/products/product_category:
+        children: subcategories
         created_at: created at
-        ecm_products_products: products
-        ecm_products_products_count: products
         depth: depth
-        updated_at: updated at
-        short_description: short description
-        main_image_updated_at: main image updated at
+        ecm_products_products_count: products
+        ecm_products_products: products
         lft: left
-        main_image_fingerprint: main image fingerprint
+        locale: language
+        long_description: long description
+        main_image_content_type: main image content type
         main_image_file_name: main image file name
         main_image_file_size: main image file size
-        long_description: long description
-        preview_image_content_type: preview image content type
-        preview_image_updated_at: preview image updated at
-        parent: parent category
+        main_image_fingerprint: main image fingerprint
+        main_image: main image
+        main_image_updated_at: main image updated at
+        markup_language: markup language
+        name: name
         parent_id: parent category
-        locale: language
+        parent: parent category
+        preview_image_content_type: preview image content type
         preview_image_file_name: preview image file name
         preview_image_file_size: preview image file size
-        rgt: right
+        preview_image_fingerprint: preview image fingerprint
         preview_image: preview image
-        main_image: main image
-        markup_language: markup language
+        preview_image_updated_at: preview image updated at
+        rgt: right
+        short_description: short description
+        slug: slug
+        updated_at: updated at
+

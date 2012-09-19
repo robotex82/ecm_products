@@ -1,36 +1,38 @@
---- 
-de: 
-  activerecord: 
-    models: 
-      ecm/products/product_category: 
+---
+de:
+  activerecord:
+    models:
+      ecm/products/product_category:
         one: Produkt Kategorie
         other: Produkt Kategorien
-    attributes: 
-      ecm/products/product_category: 
-        slug: Freundliche ID
-        name: Name
-        preview_image_fingerprint: Vorschaubild Fingerabdruck
-        main_image_content_type: Hauptbild Dateityp
+    attributes:
+      ecm/products/product_category:
+        children: Unterkategorien
         created_at: Erstellt am
-        ecm_products_products: Produkte
-        ecm_products_products_count: Produkte
         depth: Baumtiefe
-        updated_at: Aktualisiert am
-        short_description: Kurzbeschreibung
-        main_image_updated_at: Hauptbild aktualisiert am
+        ecm_products_products_count: Produkte
+        ecm_products_products: Produkte
         lft: Links
-        main_image_fingerprint: Hauptbild Fingerabdruck
+        locale: Sprache
+        long_description: Langbeschreibung
+        main_image_content_type: Hauptbild Dateityp
         main_image_file_name: Hauptbild Dateiname
         main_image_file_size: Hauptbild Dateigröße
-        long_description: Langbeschreibung
-        preview_image_content_type: Vorschaubild Dateityp
-        preview_image_updated_at: Vorschaubild aktualisiert am
-        parent: Überkategorie
+        main_image_fingerprint: Hauptbild Fingerabdruck
+        main_image: Hauptbild
+        main_image_updated_at: Hauptbild aktualisiert am
+        markup_language: Markup Sprache
+        name: Name
         parent_id: Überkategorie
-        locale: Sprache
+        parent: Überkategorie
+        preview_image_content_type: Vorschaubild Dateityp
         preview_image_file_name: Vorschaubild Dateiname
         preview_image_file_size: Vorschaubild Dateigröße
-        rgt: Rechts
+        preview_image_fingerprint: Vorschaubild Fingerabdruck
+        preview_image_updated_at: Vorschaubild aktualisiert am
         preview_image: Vorschaubild
-        main_image: Hauptbild     
-        markup_language: Markup Sprache   
+        rgt: Rechts
+        short_description: Kurzbeschreibung
+        slug: Freundliche ID
+        updated_at: Aktualisiert am
+
