@@ -1,10 +1,10 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard 'rails', :rails_root => 'spec/dummy' do
-  watch('Gemfile.lock')
-  watch(%r{^(config|lib)/.*(^\.rake)})
-end
+#guard 'rails', :rails_root => 'spec/dummy' do
+#  watch('Gemfile.lock')
+#  watch(%r{^(config|lib)/.*(^\.rake)})
+#end
 
 guard 'rspec', :version => 2 do
   watch(%r{^spec/.+_spec\.rb$})

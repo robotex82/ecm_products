@@ -28,6 +28,7 @@ class Ecm::Products::ProductLink < ActiveRecord::Base
   MARKUP_LANGUAGES = %w(markdown textile rdoc)  
 
   # validations
+  validates :ecm_products_product, :presence => true
   validates :name, :presence => true, :uniqueness => { :scope => [ :ecm_products_product_id ] }
   validates :url,  :presence => true, :uniqueness => { :scope => [ :ecm_products_product_id ] }
   validates :markup_language, :presence  => true, 

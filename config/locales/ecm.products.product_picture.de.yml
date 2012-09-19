@@ -1,0 +1,24 @@
+---
+de:
+  activerecord:
+    models:
+      ecm/products/product_picture:
+        one: Produkt Bild
+        other: Produkt Bilder
+    attributes:
+      ecm/products/product_picture:
+        name: Name
+        position: Position
+        slug: Freundliche ID
+        image_file_name: Dateiname
+        created_at: Erstellt am
+        image_file_size: Dateigröße
+        updated_at: Aktualisiert am
+        image_content_type: Content Type
+        image_fingerprint: Fingerabdruck
+        ecm_products_product: Produkt
+        ecm_products_product_id: Produkt
+        markup_language: Markup Sprache
+        description: Beschreibung
+        image_updated_at: Datei aktualisiert am
+

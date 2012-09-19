@@ -12,6 +12,7 @@ namespace :ecm_products do
       Ecm::Products::ProductCategory.delete_all
       Ecm::Products::Product.delete_all
       Ecm::Products::ProductLink.delete_all
+      Ecm::Products::ProductPicture.delete_all      
     end
     
     desc "Creates example_data"
@@ -23,7 +24,7 @@ namespace :ecm_products do
       10.times do
         Ecm::Products::ProductCategory.create! do |pc|
           pc.locale            = I18n.available_locales.choice.to_s      
-          pc.name              = Faker::Product.brand
+          pc.name              = "#{Faker::Product.brand} #{(1 + rand(9))}"
           pc.short_description = Faker::Lorem.paragraph(2)
           pc.long_description  = Faker::Lorem.paragraph(10)   
           pc.preview_image     = File.open(ECM::Products::Engine.root + "spec/fixtures/product/preview_image.gif")
@@ -57,7 +58,7 @@ namespace :ecm_products do
           
           p.ecm_products_product_category = product_categories.choice
           
-          p.price Money.new(rand(1000000 / 100), "EUR")
+          p.price = Money.new(rand(1000000 / 100), "EUR")
         end
       end        
       
@@ -70,7 +71,17 @@ namespace :ecm_products do
             pl.description = Faker::Lorem.paragraph(rand(3))
           end
         end
-      end  
+      end 
+      
+      # Create example pictures    
+      Ecm::Products::Product.all.each do |p|
+        (0..10).to_a.push(0, 0, 0, 0, 0).choice.times do
+          p.ecm_products_product_pictures.create do |pp|
+            pp.image       = File.open(ECM::Products::Engine.root + "spec/files/ecm/products/product_picture/image.jpg")  
+            pp.description = Faker::Lorem.paragraph(rand(3)) if rand(1) > 0
+          end
+        end
+      end 
     end  
   end
 end

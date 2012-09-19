@@ -7,6 +7,8 @@ module Ecm
       
       # associations
       it { should belong_to(:ecm_products_product_category) }
+      it { should have_many(:ecm_products_product_links) }
+      it { should have_many(:ecm_products_product_pictures) }
       
       # validations
       it { should validate_presence_of(:name) }

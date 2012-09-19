@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.2.7"
   
   # Module dependencies
+  s.add_dependency "activeadmin"
   s.add_dependency "active_admin-acts_as_list"
   s.add_dependency "active_admin-awesome_nested_set", '~>0.0.3'
   s.add_dependency 'acts_as_list'

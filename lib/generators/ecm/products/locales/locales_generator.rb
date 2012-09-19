@@ -21,6 +21,9 @@ module Ecm
 
           copy_file "ecm.products.product_link.en.yml", "config/locales/ecm.products.product_link.en.yml"
           copy_file "ecm.products.product_link.de.yml", "config/locales/ecm.products.product_link.de.yml"
+
+          copy_file "ecm.products.product_picture.en.yml", "config/locales/ecm.products.product_picture.en.yml"
+          copy_file "ecm.products.product_picture.de.yml", "config/locales/ecm.products.product_picture.de.yml"
         end
       end
     end
