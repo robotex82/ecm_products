@@ -25,7 +25,7 @@ class Ecm::Products::ProductPicture < ActiveRecord::Base
 
   # callbacks
   after_initialize :set_defaults
-  before_validation :set_name_from_image_file_name, :if => Proc.new { |p| p.name.empty? }
+  before_validation :set_name_from_image_file_name, :if => Proc.new { |p| p.name.nil? || p.name.empty? }
 
   # constants
   MARKUP_LANGUAGES = %w(markdown textile rdoc)
