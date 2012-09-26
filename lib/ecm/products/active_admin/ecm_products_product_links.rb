@@ -1,3 +1,5 @@
+include ActiveAdmin::ActsAsList::Helper if defined?(ActiveAdmin)
+
 ::ActiveAdmin.register Ecm::Products::ProductLink do
   # menu entry settings
   menu :parent => Proc.new { I18n.t('ecm.products.active_admin.menu') }.call
