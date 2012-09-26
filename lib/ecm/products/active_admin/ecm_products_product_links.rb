@@ -14,7 +14,7 @@
     end
 
     f.inputs do
-      f.input :markup_language, :as => :select, :collection => Ecm::Products::ProductLink::MARKUP_LANGUAGES
+      f.input :markup_language, :as => :select, :collection => Ecm::Products::Configuration.markup_languages
     end
 
     f.actions

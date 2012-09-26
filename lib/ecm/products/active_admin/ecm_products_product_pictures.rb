@@ -11,12 +11,13 @@ include ActiveAdmin::ActsAsList::Helper if defined?(::ActiveAdmin)
     f.inputs do
       f.input :ecm_products_product
       f.input :name
+      f.input :image, :as => :file, 
+                      :hint => f.template.image_tag(f.object.image.url(:medium_thumb))      
       f.input :description
-      f.input :image, :as => :file
     end
 
     f.inputs do
-      f.input :markup_language, :as => :select, :collection => Ecm::Products::ProductPicture::MARKUP_LANGUAGES
+      f.input :markup_language, :as => :select, :collection => Ecm::Products::Configuration.markup_languages
     end
     f.actions
   end

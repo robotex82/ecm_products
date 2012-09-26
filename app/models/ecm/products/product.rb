@@ -58,6 +58,7 @@ class Ecm::Products::Product < ActiveRecord::Base
 
   # attributes
   attr_accessible :ecm_products_product_category_id,
+                  :ecm_products_product_pictures_attributes,
                   :long_description,
                   :main_image,
                   :markup_language,
@@ -77,9 +78,6 @@ class Ecm::Products::Product < ActiveRecord::Base
   after_update :fix_updated_counters
   before_update :fix_updated_position, :if => Proc.new { |d| !position.blank? && d.ecm_products_product_category_id_changed? }
 
-  # constants
-  MARKUP_LANGUAGES = %w(markdown textile rdoc)
-
   # friendly id
   extend FriendlyId
   friendly_id :name, :use => :slugged
@@ -88,14 +86,16 @@ class Ecm::Products::Product < ActiveRecord::Base
   monetize :price_cents, :allow_nil => true
 
   # paperclip
-  has_attached_file :main_image, :styles => { :medium_thumb => "160x120", :big_thumb => "360x268" }
-  has_attached_file :preview_image, :styles => { :medium_thumb => "160x120", :big_thumb => "360x268" }
+  has_attached_file :main_image,
+                    :styles => Ecm::Products::Configuration.product_main_image_styles
+  has_attached_file :preview_image,
+                    :styles => Ecm::Products::Configuration.product_preview_image_styles
 
   # validations
   validates :ecm_products_product_category, :presence => true
   validates :name, :presence => true
   validates :markup_language, :presence  => true,
-                              :inclusion => MARKUP_LANGUAGES
+                              :inclusion => Ecm::Products::Configuration.markup_languages
 
   # private methods
 
@@ -107,7 +107,7 @@ class Ecm::Products::Product < ActiveRecord::Base
 
   def set_defaults
     if self.new_record?
-      self.markup_language ||= 'textile'
+      self.markup_language ||= Ecm::Products::Configuration.default_markup_language
     end
   end
 end

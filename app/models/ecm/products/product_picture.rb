@@ -27,31 +27,25 @@ class Ecm::Products::ProductPicture < ActiveRecord::Base
   after_initialize :set_defaults
   before_validation :set_name_from_image_file_name, :if => Proc.new { |p| p.name.nil? || p.name.empty? }
 
-  # constants
-  MARKUP_LANGUAGES = %w(markdown textile rdoc)
-
   # friendly id
   extend FriendlyId
   friendly_id :name, :use => :slugged
 
   # paperclip
   has_attached_file :image,
-                    :styles => {
-                      :medium_thumb => "160x120",
-                      :big_thumb => "360x268"
-                    }
+                    :styles => Ecm::Products::Configuration.product_picture_image_styles
 
   # validations
   validates :ecm_products_product, :presence => true
   validates :markup_language, :presence  => true,
-                              :inclusion => MARKUP_LANGUAGES
+                              :inclusion => Ecm::Products::Configuration.markup_languages
   validates :name, :presence => true
 
   private
 
   def set_defaults
     if self.new_record?
-      self.markup_language ||= 'textile'
+      self.markup_language ||= Ecm::Products::Configuration.default_markup_language
     end
   end
 

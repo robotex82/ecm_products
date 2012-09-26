@@ -8,6 +8,7 @@ en:
           back_to_category: back to %{name}
           more: more
         messages:
+          no_pictures_available: No pictures available.
       product_category:
         actions:
           all: show all

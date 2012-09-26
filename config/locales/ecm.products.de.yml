@@ -8,6 +8,7 @@ de:
           back_to_category: Zurück zu %{name}
           more: Mehr
         messages:
+          no_pictures_available: Keine Bilder zu diesem Produkt vorhanden.
       product_category:
         actions:
           all: Alle anzeigen

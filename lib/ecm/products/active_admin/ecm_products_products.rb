@@ -21,7 +21,26 @@ include ActiveAdmin::ActsAsList::Helper if defined?(ActiveAdmin)
     end
 
     f.inputs do
-      f.input :markup_language, :as => :select, :collection => Ecm::Products::Product::MARKUP_LANGUAGES
+      f.input :markup_language, :as => :select, :collection => Ecm::Products::Configuration.markup_languages
+    end
+
+    f.inputs do
+      f.has_many :ecm_products_product_pictures do |pp|
+        if pp.object.persisted?
+          pp.input :_destroy, :as => :boolean, :label => I18n.t('active_admin.delete')
+        end
+
+#        pp.inputs do
+          pp.input :name
+          pp.input :image, :as => :file, 
+                           :hint => pp.template.image_tag(pp.object.image.url(:medium_thumb))
+          pp.input :description
+#        end
+
+#        pp.inputs do
+          pp.input :markup_language, :as => :select, :collection => Ecm::Products::ProductPicture::MARKUP_LANGUAGES
+#        end
+      end # f.has_many
     end
 
     f.actions

@@ -33,24 +33,23 @@ class Ecm::Products::ProductCategory < ActiveRecord::Base
   # callbacks
   after_initialize :set_defaults   
   
-  # constants
-  MARKUP_LANGUAGES = %w(markdown textile rdoc)  
-  
   # friendly id
   extend FriendlyId
   friendly_id :name, :use => :slugged
   
   # paperclip
-  has_attached_file :main_image, :styles => { :medium_thumb => "160x120", :big_thumb => "360x268" }  
-  has_attached_file :preview_image, :styles => { :small_thumb => "64x48",  :medium_thumb => "160x120", :big_thumb => "360x268" }   
+  has_attached_file :main_image,
+                    :styles => Ecm::Products::Configuration.product_category_main_image_styles
+  has_attached_file :preview_image,
+                    :styles => Ecm::Products::Configuration.product_category_preview_image_styles
   
   # validations
   validates :name, :presence => true, :uniqueness => { :scope => [ :parent_id ] }
   validates :locale, :presence => true, :if => Proc.new { |pc| pc.parent.nil? } # , :if => :root?
   validates :locale, :absence => true, :if => Proc.new { |pc| !pc.parent.nil? }
   validate  :available_locale, :if => Proc.new { |pc| pc.locale.present? }
-  validates :markup_language, :presence  => true, 
-                              :inclusion => MARKUP_LANGUAGES
+  validates :markup_language, :presence  => true,
+                              :inclusion => Ecm::Products::Configuration.markup_languages
   
   # public methods
   

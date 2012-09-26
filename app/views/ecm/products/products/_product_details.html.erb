@@ -1,27 +1,37 @@
 <div class="product" id="product-<%= product.id %>">
   <h1 class="product-name"><%= product.name %></h1>
-  
+
   <% if product.main_image? %>
   <div class="product-main_image"><%= image_tag(product.main_image.url, :class => 'thumbnail') %></div>
   <% end %>
-  
+
   <% if product.short_description.present? %>
   <div class="product-short_description"><%= mu(product, :short_description) %></div>
   <% end %>
   
+  <% if product.ecm_products_product_pictures.present? %>
+    <div class="row-fluid product-pictures">
+      <ul class="thumbnails">
+        <% product.ecm_products_product_pictures.each do |product_picture| %>
+          <%= render product_picture %>
+        <% end %>
+      </ul>  
+    </div>
+  <% end %>
+
   <% if product.long_description.present? %>
   <div class="product-long_description"><%= mu(product, :long_description) %></div>
-  <% end %>  
-  
+  <% end %>
+
   <% if product.price.present? %>
   <div class="product-price">
     <p><%= Ecm::Products::Product.human_attribute_name(:price) %>: <%= humanized_money_with_symbol product.price %></p>
   </div>
   <% end %>
-  
+
   <% if product.ecm_products_product_links.present? %>
   <hr />
-  
+
   <div class="product-links">
   <% product.ecm_products_product_links.each do |product_link| %>
     <%= render product_link %>
@@ -36,4 +46,5 @@
 <%= link_to(product.ecm_products_product_category, :class => 'btn') do %>
   <i class="icon-arrow-left"></i>
   <%= t('ecm.products.product.actions.back_to_category', :name => product.ecm_products_product_category) %>
-<% end %>  
+<% end %>
+
