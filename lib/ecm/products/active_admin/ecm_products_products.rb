@@ -38,7 +38,7 @@ include ActiveAdmin::ActsAsList::Helper if defined?(ActiveAdmin)
 #        end
 
 #        pp.inputs do
-          pp.input :markup_language, :as => :select, :collection => Ecm::Products::ProductPicture::MARKUP_LANGUAGES
+          pp.input :markup_language, :as => :select, :collection => Ecm::Products::Configuration.markup_languages
 #        end
       end # f.has_many
     end

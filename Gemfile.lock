@@ -9,11 +9,11 @@ GIT
 PATH
   remote: .
   specs:
-    ecm_products (1.0.6.pre)
+    ecm_products (2.0.8.pre)
       active_admin-acts_as_list
       active_admin-awesome_nested_set (~> 0.0.3)
       activeadmin
-      acts_as_list
+      acts_as_list (~> 0.1.7)
       acts_as_markup
       awesome_nested_set
       awesome_nested_set-tools

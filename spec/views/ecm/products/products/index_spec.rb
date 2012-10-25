@@ -6,7 +6,7 @@ describe "ecm/products/products/index" do
     render
     view.should render_template(:partial => "_product_preview", :count => 2)
   end
-  
+
   it "shows headings for all products" do
     products = FactoryGirl.create_list(:ecm_products_product, 5)
     assign(:products, products)
@@ -15,13 +15,14 @@ describe "ecm/products/products/index" do
       rendered.should have_selector("h5", :text => p.name)
     end
   end
-  
+
   it "shows links to all products" do
     products = FactoryGirl.create_list(:ecm_products_product, 5)
     assign(:products, products)
     render
     products.each do |product|
-      rendered.should have_link("more", :href => "/ecm_products_products/#{product.to_param}")
+      rendered.should have_link(I18n.t('ecm.products.product.actions.more'), :href => "/ecm_products_products/#{product.to_param}")
     end
   end
 end
+
