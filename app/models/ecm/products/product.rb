@@ -97,6 +97,11 @@ class Ecm::Products::Product < ActiveRecord::Base
   validates :markup_language, :presence  => true,
                               :inclusion => Ecm::Products::Configuration.markup_languages
 
+  # publid methods
+  def to_s
+    name
+  end
+
   # private methods
 
   private

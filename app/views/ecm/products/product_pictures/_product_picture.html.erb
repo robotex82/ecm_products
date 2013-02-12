@@ -1,7 +1,7 @@
 <li class="span44 offset">
   <div class="thumbnail">
     <%= link_to(product_picture.image.url, { :class => "top_up" }) do %>
-      <%= image_tag(product_picture.image.url(:default)) %>
+      <%= image_tag(product_picture.image.url(:medium_thumb)) %>
     <% end %>
     <div class="caption">
       <%= mu(product_picture, :description) %>

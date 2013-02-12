@@ -1,3 +1,4 @@
+<% content_for(:title, @product_category) %>
 <%= render @product_category %>
 
 <br />
@@ -8,13 +9,13 @@
     <i class="icon-arrow-left"></i>
     <%= t('ecm.products.product_category.actions.back_to_index') %>
   <% end %>
-  
+
 <% else %>
 
   <%= link_to(@product_category.parent, :class => 'back-link btn') do %>
     <i class="icon-arrow-left"></i>
     <%= t('ecm.products.product_category.actions.back_to_parent', :name => @product_category.parent.to_s) %>
   <% end %>
-  
+
 <% end %>
 

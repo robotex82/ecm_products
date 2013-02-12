@@ -1,3 +1,4 @@
-<h1>Ecm::Products::Products#index</h1>
+<% content_for(:title, Ecm::Products::Product.model_name.human(:count => :other)) %>
+<h1><%= Ecm::Products::Product.model_name.human(:count => :other) %></h1>
 
 <%= render :partial => "product_preview", :collection => @products, :as => :product %>

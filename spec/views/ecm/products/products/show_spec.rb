@@ -27,7 +27,8 @@ describe "ecm/products/products/show" do
     product = FactoryGirl.create(:ecm_products_product_with_main_image)
     assign(:product, product)
     render
-    rendered.should have_selector("img", :src => product.main_image.url)
+    # rendered.should have_selector("img", :src => product.main_image.url)
+    rendered.should have_xpath("//img[@src='#{product.main_image.url}']")
   end
 
   it "shows the product short description" do
@@ -56,7 +57,7 @@ describe "ecm/products/products/show" do
     assign(:product, product)
     render
     product.ecm_products_product_pictures.each do |picture|
-      rendered.should have_selector("img", :src => picture.image.url(:medium_thumb))
+      rendered.should have_xpath("//img[@src='#{picture.image.url(:medium_thumb)}']")
     end
   end
 
@@ -65,7 +66,7 @@ describe "ecm/products/products/show" do
     assign(:product, product)
     render
     product.ecm_products_product_links.each do |link|
-      rendered.should have_selector("a", :href => link.url)
+      rendered.should have_xpath("//a[@href='#{link.url}']")
     end
   end
 
@@ -73,7 +74,7 @@ describe "ecm/products/products/show" do
     product = FactoryGirl.create(:ecm_products_product)
     assign(:product, product)
     render
-    rendered.should have_selector("a", :href => "/ecm_products_product_categories/#{product.ecm_products_product_category}")
+    rendered.should have_xpath("//a[@href='/ecm_products_product_categories/#{product.ecm_products_product_category.to_param}']")
   end
 end
 

@@ -1,16 +1,16 @@
 FactoryGirl.define do
   factory :ecm_products_product, :class => Ecm::Products::Product do
-    sequence(:name) {|n| "#{Faker::Product.product_name} #{n}" }
+    sequence(:name) { |i| "Product #{i}" }
     markup_language "textile"
 
     ecm_products_product_category
 
     factory :ecm_products_product_with_main_image do |product|
-      main_image { File.open(ECM::Products::Engine.root + "spec/files/ecm/products/product/main_image.gif") }
+      main_image { File.open(File.join(Rails.root, "spec/files", "ecm/products", "product/main_image.gif")) }
     end
 
     factory :ecm_products_product_with_preview_image do |product|
-      preview_image { File.open(ECM::Products::Engine.root + "spec/files/ecm/products/product/preview_image.gif") }
+      preview_image { File.open(File.join(Rails.root, "spec/files", "ecm/products", "product/preview_image.gif")) }
     end
 
     factory :ecm_products_product_with_links do |product|

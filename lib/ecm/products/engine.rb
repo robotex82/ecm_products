@@ -1,4 +1,4 @@
-module ECM
+module Ecm
   module Products
     class Engine < ::Rails::Engine
       # active admin
